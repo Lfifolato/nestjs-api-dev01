@@ -32,7 +32,10 @@ export class LivrosService {
     const livro = this.livros.find((x: Livro) => x.id === id);
 
     if (!livro) {
-      throw new HttpException(`Livro id ${id} not found`, HttpStatus.NOT_FOUND);
+      throw new HttpException(
+        `Livro id ${id} not found`,
+        HttpStatus.BAD_REQUEST,
+      );
     }
 
     return livro;
